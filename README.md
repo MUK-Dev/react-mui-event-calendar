@@ -383,10 +383,6 @@ export default App;
 | showEventPopup                | `boolean` | `true`              | This prop is used to set toolbar properties     | `true`,`false`               |
 | onDataChange                  | `event`   |                     | This event is fired when a new event is created |                              |
 
-```
-
-```
-
 ## 👉 Authors
 
 - M. Usman Khilji ([MUK-Dev](http://github.com/MUK-Dev))
