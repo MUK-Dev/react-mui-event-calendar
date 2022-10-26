@@ -10,11 +10,7 @@
 
 ### Examples
 
-> You can find examples [here](https://react-event-calendar-dev.vercel.app/)
-
-## Install
-
-Or using npm
+> You can find example [here](https://react-event-calendar-dev.vercel.app/)
 
 ## 🚀 Installation
 
