@@ -378,10 +378,9 @@ export default App;
 | dataSource | Array  |                     | This prop sets event data            |        |
 | pallet     | object | `MUI default theme` | Sets the color theme of the calendar |
 
-{
-primary: 'hex color code',
-secondary: 'hex color code'
-} |
+`primary: 'hex color code',`
+`secondary: 'hex color code'`
+|
 | readonly | `boolean` | `false` | Prevents adding of events | `true`,`false`|
 | elevation | `number` | `0` | Sets elevation/box-shadow of calendar | |
 | showEventPopup | `boolean` | `true` | This prop is used to set toolbar properties | `true`,`false` |
