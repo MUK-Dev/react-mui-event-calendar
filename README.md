@@ -15,7 +15,7 @@
 ## 🚀 Installation
 
 ```nodejs
-  npm install react-mui-scheduler
+  npm install @MUK-Dev/react-mui-event-calendar
 ```
 
 `react-mui-event-calendar` brings 1 component. (TypeScript support included)
