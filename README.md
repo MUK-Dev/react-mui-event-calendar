@@ -4,7 +4,7 @@
 
 > Component for [material-ui](https://github.com/mui-org/material-ui). No dependencies, small, highly customizable and theming support!
 
-![Preview of Calendar](https://github.com/MUK-Dev/react-mui-event-calendar/blob/master/images/Event%20Calendar.png)
+![Preview of Calendar](https://raw.githubusercontent.com/MUK-Dev/react-mui-event-calendar/master/images/Event%20Calendar.png?token=GHSAT0AAAAAABUA7CAUEOV7BWOQ5Y4F34BCY23J3VA)
 
 ## Documentation
 
@@ -15,7 +15,7 @@
 ## 🚀 Installation
 
 ```nodejs
-  npm install @MUK-Dev/react-mui-event-calendar
+  npm install react-mui-event-calendar
 ```
 
 `react-mui-event-calendar` brings 1 component. (TypeScript support included)
@@ -39,13 +39,12 @@ import {
   TextField,
 } from '@mui/material';
 import moment from 'moment';
-import { EventCalendar } from '@MUK-Dev/react-mui-event-calendar';
-import { EventsData } from '@MUK-Dev/react-mui-event-calendar/types';
+import { EventCalendar } from 'react-mui-event-calendar';
 
 const emails = ['username@gmail.com', 'user02@gmail.com'];
 
 function App() {
-  const data: EventsData = [
+  const data = [
     {
       date: new Date(),
       title: 'First',
