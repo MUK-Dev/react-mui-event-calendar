@@ -4,7 +4,7 @@
 
 > Component for [material-ui](https://github.com/mui-org/material-ui). No dependencies, small, highly customizable and theming support!
 
-![Preview of Calendar](./images/Event%20Calendar.png)
+![Preview of Calendar](https://github.com/MUK-Dev/react-mui-event-calendar/blob/master/images/Event%20Calendar.png)
 
 ## Documentation
 
