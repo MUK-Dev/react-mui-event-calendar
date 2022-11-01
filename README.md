@@ -8,7 +8,7 @@
 
 ## Documentation
 
-### Star the [Repository](https://github.com/MUK-Dev/react-mui-event-calendar)
+## ⭐ Star the [Repository](https://github.com/MUK-Dev/react-mui-event-calendar)
 
 ### Examples
 
