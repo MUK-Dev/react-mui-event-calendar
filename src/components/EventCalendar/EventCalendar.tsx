@@ -5,6 +5,7 @@ import Day from './Day';
 import ExtraDays from './ExtraDays';
 import useEventCalendar from './useEventCalendar';
 import Controls from './Controls';
+import moment, { Moment } from 'moment';
 
 interface Props {
   readonly?: boolean;
@@ -14,6 +15,7 @@ interface Props {
   dataSource?: EventsData;
   onDataChange?: (events: EventsData) => void;
   showEventPopup?: boolean;
+  defaultDate?: Date | Moment;
 }
 
 export type CalendarContext = {
@@ -34,8 +36,9 @@ const EventCalendar: FC<Props> = ({
   dataSource,
   onDataChange,
   showEventPopup = true,
+  defaultDate = moment(),
 }) => {
-  const { changeMonth, date, daysGrid } = useEventCalendar();
+  const { changeMonth, date, daysGrid } = useEventCalendar(defaultDate);
   const [data, setData] = useState(dataSource);
   const theme = createTheme({
     palette: {

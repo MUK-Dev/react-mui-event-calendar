@@ -1,12 +1,12 @@
 import { EventCalendarContext } from './EventCalendar';
 import { useEffect, useMemo, useState, useContext } from 'react';
-import moment from 'moment';
+import moment, { Moment } from 'moment';
 
 import { DaysGrid } from './types';
 
-export default function useEventCalendar() {
+export default function useEventCalendar(defaultDate: Date | Moment) {
   const context = useContext(EventCalendarContext);
-  const [date, setDate] = useState(moment());
+  const [date, setDate] = useState(moment(defaultDate));
   const [daysGrid, setDaysGrid] = useState<Array<DaysGrid>>([]);
 
   const d = useMemo(() => date, [date]);
