@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState } from 'react'
 import {
   Button,
   Dialog,
@@ -13,30 +13,28 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
-} from '@mui/material';
-import moment from 'moment';
-import { ColorPicker, createColor } from 'mui-color';
+} from '@mui/material'
+import moment from 'moment'
 
-import { DaysGrid, EventsData } from './types';
-import Event from './Event';
-import useEventCalendar from './useEventCalendar';
-import { CalendarContext } from './EventCalendar';
+import { DaysGrid, EventsData } from './types'
+import Event from './Event'
+import useEventCalendar from './useEventCalendar'
+import { CalendarContext } from './EventCalendarContext'
 
 interface Props {
-  i: number;
-  daysGridLength: number;
-  item: DaysGrid;
-  events?: EventsData | undefined;
+  i: number
+  daysGridLength: number
+  item: DaysGrid
+  events?: EventsData | undefined
 }
 
 const Day: FC<Props> = ({ i, daysGridLength, item, events }) => {
-  const [showNewEventModal, setShowNewEventModal] = useState(false);
-  const theme = useTheme();
-  const context: CalendarContext = useEventCalendar().context;
-  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
-  const [title, setTitle] = useState('');
-  const [color, setColor] = useState(createColor(theme.palette.primary.main));
-  const [content, setContent] = useState('');
+  const [showNewEventModal, setShowNewEventModal] = useState(false)
+  const theme = useTheme()
+  const context: CalendarContext = useEventCalendar().context
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'))
+  const [title, setTitle] = useState('')
+  const [content, setContent] = useState('')
 
   const getWeekDays = () => [
     'MON.',
@@ -46,47 +44,33 @@ const Day: FC<Props> = ({ i, daysGridLength, item, events }) => {
     'FRI.',
     'SAT.',
     'SUN.',
-  ];
+  ]
 
-  const weekDays = getWeekDays();
-
-  const palette = {
-    red: '#ff0000',
-    blue: '#0000ff',
-    green: '#00ff00',
-    yellow: '#dce312',
-    cyan: '#19e0da',
-    lime: '#68e317',
-    gray: '#a3a3a3',
-    orange: '#ff8400',
-    purple: '#870af5',
-    black: '#1c1c1c',
-    white: '#ffffff',
-    pink: '#e100fa',
-    darkblue: '#2600ff',
-  };
+  const weekDays = getWeekDays()
 
   const addNewEvent = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
+    let newArrayForDataChange: EventsData = []
     if (!context?.readonly && title !== '' && content !== '') {
       context?.setData?.((prev: any) => {
-        const newArray = [...prev];
+        const newArray = [...prev]
         newArray.push({
           title,
-          color: `#${color.hex}`,
+          color: theme.palette.primary.main,
           date: item.date,
           popupContent: (
             <DialogContent>
               <DialogContentText>{content}</DialogContentText>
             </DialogContent>
           ),
-        });
-        return newArray;
-      });
-      setShowNewEventModal((prev) => !prev);
-      context?.onDataChange?.(context.data as EventsData);
+        })
+        newArrayForDataChange = newArray
+        return newArray
+      })
+      setShowNewEventModal((prev) => !prev)
+      context?.onDataChange?.(newArrayForDataChange)
     }
-  };
+  }
 
   return (
     <Grid
@@ -96,14 +80,15 @@ const Day: FC<Props> = ({ i, daysGridLength, item, events }) => {
       borderRight='none'
       borderBottom={() => {
         if (!(i > 7 * Math.floor(daysGridLength / 7) - 1))
-          return '1px solid rgb(0, 0, 0, 0.12)';
+          return '1px solid rgb(0, 0, 0, 0.12)'
       }}
       borderLeft={() => {
-        if (i % 7 !== 0) return '1px solid rgb(0, 0, 0, 0.12)';
+        if (i % 7 !== 0) return '1px solid rgb(0, 0, 0, 0.12)'
       }}
       key={i}
       textAlign='center'
       height='8rem'
+      paddingTop='0.3em'
       overflow='auto'
     >
       {i < 7 && (
@@ -188,11 +173,6 @@ const Day: FC<Props> = ({ i, daysGridLength, item, events }) => {
                 variant='outlined'
                 required
               />
-              <ColorPicker
-                palette={palette}
-                value={color}
-                onChange={(color: any) => setColor(color)}
-              />
             </Stack>
           </DialogContent>
           <DialogActions>
@@ -204,7 +184,7 @@ const Day: FC<Props> = ({ i, daysGridLength, item, events }) => {
         </form>
       </Dialog>
     </Grid>
-  );
-};
+  )
+}
 
-export default Day;
+export default Day

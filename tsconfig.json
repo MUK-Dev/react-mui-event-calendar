@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
     // Default
-    "target": "es5",
+    "target": "ESNext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
+    "rootDir": ".",
 
     // Added
     "jsx": "react",

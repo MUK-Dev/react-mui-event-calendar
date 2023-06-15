@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
-import { IconButton, Stack, Typography } from '@mui/material';
-import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
-import { Moment } from 'moment';
+import React, { FC } from 'react'
+import { IconButton, Stack, Typography } from '@mui/material'
+import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material'
+import { Moment } from 'moment'
 
 interface Props {
-  changeMonth: (action: string) => void;
-  date: Moment;
+  changeMonth: (action: string) => void
+  date: Moment
 }
 
 const Controls: FC<Props> = ({ changeMonth, date }) => {
@@ -39,7 +39,7 @@ const Controls: FC<Props> = ({ changeMonth, date }) => {
         {date.format('MMMM, YYYY')}
       </Typography>
     </Stack>
-  );
-};
+  )
+}
 
-export default Controls;
+export default Controls

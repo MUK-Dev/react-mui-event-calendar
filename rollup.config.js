@@ -1,13 +1,13 @@
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import typescript from '@rollup/plugin-typescript';
-import dts from 'rollup-plugin-dts';
+import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import typescript from '@rollup/plugin-typescript'
+import dts from 'rollup-plugin-dts'
 
 //NEW
-import { terser } from 'rollup-plugin-terser';
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import terser from '@rollup/plugin-terser'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 
-const packageJson = require('./package.json');
+const packageJson = require('./package.json')
 
 export default [
   {
@@ -15,26 +15,26 @@ export default [
     output: [
       {
         file: packageJson.main,
-        format: 'cjs',
+        format: 'esm',
         sourcemap: true,
       },
     ],
     plugins: [
       // NEW
+      typescript(),
       peerDepsExternal(),
 
       resolve(),
       commonjs(),
-      typescript({ tsconfig: './tsconfig.json' }),
 
       // NEW
       terser(),
     ],
   },
   {
-    input: 'dist/cjs/types/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
-    plugins: [dts()],
+    input: 'dist/cjs/types/src/index.d.ts',
+    output: [{ file: 'dist/react-mui-event-calendar.d.ts', format: 'esm' }],
+    plugins: [dts.default()],
     external: [/\.css$/],
   },
-];
+]
