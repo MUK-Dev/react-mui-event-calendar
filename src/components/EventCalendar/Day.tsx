@@ -50,23 +50,21 @@ const Day: FC<Props> = ({ i, daysGridLength, item, events }) => {
 
   const addNewEvent = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    let newArrayForDataChange: EventsData = []
     if (!context?.readonly && title !== '' && content !== '') {
-      context?.setData?.((prev: any) => {
-        const newArray = [...prev]
-        newArray.push({
-          title,
-          color: theme.palette.primary.main,
-          date: item.date,
-          popupContent: (
-            <DialogContent>
-              <DialogContentText>{content}</DialogContentText>
-            </DialogContent>
-          ),
-        })
-        newArrayForDataChange = newArray
-        return newArray
+      const newArrayForDataChange: EventsData = [...(context?.data as [])]
+      newArrayForDataChange.push({
+        title,
+        popupContent: (
+          <DialogContent>
+            <DialogContentText>{content}</DialogContentText>
+          </DialogContent>
+        ),
+        date: item.date,
+        color: theme.palette.primary.main,
       })
+
+      setTitle('')
+      setContent('')
       setShowNewEventModal((prev) => !prev)
       context?.onDataChange?.(newArrayForDataChange)
     }

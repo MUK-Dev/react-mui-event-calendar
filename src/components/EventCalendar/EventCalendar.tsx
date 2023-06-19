@@ -24,15 +24,14 @@ const EventCalendar: FC<EventCalendarProps> = ({
   pallet,
   elevation = 0,
   width = '90%',
-  dataSource,
+  dataSource: data,
   onDataChange,
   showEventPopup = true,
   defaultDate = moment(),
 }) => {
-  if (!dataSource) throw new Error('dataSource is required')
+  if (!data) throw new Error('dataSource is required')
 
   const { changeMonth, date, daysGrid } = useEventCalendar(defaultDate)
-  const [data, setData] = useState(dataSource)
   const theme = createTheme({
     palette: {
       primary: {
@@ -50,7 +49,6 @@ const EventCalendar: FC<EventCalendarProps> = ({
       value={{
         readonly,
         data,
-        setData,
         onDataChange,
         showEventPopup,
       }}

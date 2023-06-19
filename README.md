@@ -4,7 +4,7 @@
 
 > Component for [material-ui](https://github.com/mui-org/material-ui). No dependencies, small, highly customizable and theming support!
 
-![Preview of Calendar](https://github.com/MUK-Dev/react-mui-event-calendar/blob/master/images/Event%20Calendar.png?raw=true)
+![Preview of Calendar](https://i.imgur.com/aME2oNN.png)
 
 ## Documentation
 
@@ -27,7 +27,7 @@
 A Large Calendar that displays events on certain dates.
 
 ```typescript
-import { Add, Person } from '@mui/icons-material';
+import { Add, Person } from '@mui/icons-material'
 import {
   Avatar,
   Button,
@@ -39,11 +39,11 @@ import {
   ListItemAvatar,
   ListItemText,
   TextField,
-} from '@mui/material';
-import moment from 'moment';
-import { EventCalendar } from 'react-mui-event-calendar';
+} from '@mui/material'
+import moment from 'moment'
+import { EventCalendar } from 'react-mui-event-calendar'
 
-const emails = ['username@gmail.com', 'user02@gmail.com'];
+const emails = ['username@gmail.com', 'user02@gmail.com']
 
 function App() {
   const data = [
@@ -332,7 +332,9 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
       color: '#ffe100',
       id: '4',
     },
-  ];
+  ]
+
+  const [dataSource, setDataSource] = useState(data)
 
   return (
     <div
@@ -346,15 +348,15 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
       }}
     >
       <EventCalendar
-        dataSource={data}
-        pallet={{ primary: '#70231d', secondary: '#4a4a4a' }}
-        onDataChange={(e) => console.log(e)}
+        dataSource={dataSource}
+        pallet={{ primary: '#32d3a2', secondary: '#2343d3' }}
+        onDataChange={(newEvents) => setDataSource(newEvents)}
       />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 ## Data structure for events data
@@ -369,17 +371,16 @@ export default App;
 
 ## Props
 
-| Name                          | Type             | Default             | Description                                     | Values                       |
-| ----------------------------- | ---------------- | ------------------- | ----------------------------------------------- | ---------------------------- |
-| width                         | `string`         | `90%`               | Sets the width of the calendar                  |                              |
-| defaultDate                   | `Date or Moment` | `Moment`            | Sets the current date of calendar               |                              |
-| dataSource                    | `Array`          |                     | This prop sets event data                       |                              |
-| pallet                        | `object`         | `MUI default theme` | Sets the color theme of the calendar            | `primary: 'hex color code'`, |
-| `secondary: 'hex color code'` |
-| readonly                      | `boolean`        | `false`             | Prevents adding of events                       | `true`,`false`               |
-| elevation                     | `number`         | `0`                 | Sets elevation/box-shadow of calendar           |                              |
-| showEventPopup                | `boolean`        | `true`              | This prop is used to set toolbar properties     | `true`,`false`               |
-| onDataChange                  | `event`          |                     | This event is fired when a new event is created |                              |
+| Name           | Type             | Default             | Description                                     | Values                                                   |
+| -------------- | ---------------- | ------------------- | ----------------------------------------------- | -------------------------------------------------------- |
+| width          | `string`         | `90%`               | Sets the width of the calendar                  |                                                          |
+| defaultDate    | `Date or Moment` | `Date or Moment`    | Sets the display month of calendar              |                                                          |
+| dataSource     | `Array`          |                     | This prop sets event data                       |                                                          |
+| pallet         | `object`         | `MUI default theme` | Sets the color theme of the calendar            | `primary: 'hex color code', secondary: 'hex color code`, |
+| readonly       | `boolean`        | `false`             | Prevents adding of events                       | `true`,`false`                                           |
+| elevation      | `number`         | `0`                 | Sets elevation/box-shadow of calendar           |                                                          |
+| showEventPopup | `boolean`        | `true`              | This prop is used to set toolbar properties     | `true`,`false`                                           |
+| onDataChange   | `event`          |                     | This event is fired when a new event is created |                                                          |
 
 ## 👉 Authors
 

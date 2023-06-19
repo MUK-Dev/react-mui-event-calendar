@@ -4,8 +4,7 @@ import { Moment } from 'moment'
 
 export type CalendarContext = {
   readonly?: boolean
-  data?: EventsData
-  setData?: React.Dispatch<React.SetStateAction<EventsData>>
+  data: EventsData
   onDataChange?: (events: EventsData) => void
   showEventPopup?: boolean
 } | null
